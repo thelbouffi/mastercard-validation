@@ -2,7 +2,7 @@
   "name": "mastercard-validation",
   "version": "1.0.0",
   "description": "MasterCard credit card validator",
-  "main": "lib/visa.js",
+  "main": "lib/mastercard.js",
   "dependencies": {},
   "devDependencies": {
     "chai": "^3.5.0",
