@@ -1,6 +1,6 @@
 {
-  "name": "visa-validation",
-  "version": "1.0.1",
+  "name": "mastercard-validation",
+  "version": "1.0.0",
   "description": "Visa credit card validator",
   "main": "lib/visa.js",
   "dependencies": {},
@@ -13,16 +13,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thelbouffi/visa-validation.git"
+    "url": "git+https://github.com/thelbouffi/mastercard-validation.git"
   },
   "keywords": [
-    "visa",
-    "credit card"
+    "mastercard",
+    "credit card",
+    "master",
+    "card",
+    "validation"
   ],
   "author": "Taha El Bouffi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thelbouffi/visa-validation/issues"
+    "url": "https://github.com/thelbouffi/mastercard-validation/issues"
   },
-  "homepage": "https://github.com/thelbouffi/visa-validation#readme"
+  "homepage": "https://github.com/thelbouffi/mastercard-validation#readme",
+  "directories": {
+    "test": "test"
+  }
 }
