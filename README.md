@@ -32,4 +32,4 @@ So `console.log(validateMasterCard())` will return an object like this:
 
 ```
 #### Check also
-[visa-validation](https://www.npmjs.com/package/visa-validation
+[visa-validation](https://www.npmjs.com/package/visa-validation)
