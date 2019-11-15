@@ -1,15 +1,38 @@
 {
   "name": "mastercard-validation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MasterCard credit card validator",
   "main": "lib/mastercard.js",
   "dependencies": {},
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "coveralls": "^3.0.7",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.3",
+    "nyc": "^14.1.1",
+    "prettier": "^1.19.1",
+    "release-it": "^12.4.3"
   },
   "scripts": {
-    "test": "mocha"
+    "lint": "eslint .",
+    "format": "prettier --write \"test/**/*.js\" \"lib/**/*.js\"",
+    "pretest": "npm run lint",
+    "test": "nyc --reporter=html --reporter=text mocha",
+    "prepublishOnly": "npm test",
+    "preversion": "npm run lint",
+    "release:major": "release-it major",
+    "release:minor": "release-it minor",
+    "release:patch": "release-it patch",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -30,5 +53,21 @@
   "homepage": "https://github.com/thelbouffi/mastercard-validation#readme",
   "directories": {
     "test": "test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "files": [
+    "lib/**/*.js"
+  ],
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   }
 }
